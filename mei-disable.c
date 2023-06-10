@@ -40,13 +40,13 @@ int main(int argc, char *argv[])
 	int i;
 	struct mei_connect_client_data meidata;
 
-	for(int i=0;i<_countof(DEV_NAME);i++)
+	for(size_t i=0;i<_countof(DEV_NAME);i++)
 	{
 	    printf("Opening %s ... ",DEV_NAME[i]);
 	    fd = open(DEV_NAME[i], O_RDWR);
 	    if (fd < 0) {
 		printf("%s\n", strerror(errno));
-	    }
+	    } else break;
 	}
 	if (fd<0)
 	{
